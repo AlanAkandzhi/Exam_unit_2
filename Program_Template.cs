@@ -67,7 +67,31 @@ Response task3Response = await httpUtils.Get(baseURL + taskEndpoint + myPersonal
 Task task3 = JsonSerializer.Deserialize<Task>(task3Response.content);
 Console.WriteLine($"TASK: {ANSICodes.Effects.Bold}{task3?.title}{ANSICodes.Reset}\n{task3?.description}\nParameters: {Colors.Yellow}{task3?.parameters}{ANSICodes.Reset}");
 
+string numberSequence = task3?.parameters;
 
+int[] numbers = numberSequence.Split(',').Select(int.Parse).ToArray();
+
+string answerTask3 = String.Join(",", numbers.Where(IsPrime));
+
+bool IsPrime(int number)
+{
+    if (number <= 1) return false;
+    if (number == 2) return true;
+    if (number % 2 == 0) return false;
+
+    var boundary = (int)Math.Sqrt(number);
+    for (int i = 3; i <= boundary; i += 2)
+    {
+        if (number % i == 0)
+            return false;
+    }
+    return true;
+}
+
+Console.WriteLine($"Prime numbers: {answerTask3}");
+
+Response task3AnswerResponse = await httpUtils.Post(baseURL + taskEndpoint + myPersonalID + "/" + taskID, answerTask3.ToString());
+Console.WriteLine($"Answer: {Colors.Green}{task3AnswerResponse}{ANSICodes.Reset}");
 
 
 
