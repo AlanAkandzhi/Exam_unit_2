@@ -10,7 +10,7 @@ In this task, the goal was to pick out different words from a string and list th
 
 //Task 3
 
-
+The task was to create code that finds prime numbers in a list. First, the code safely grabbed the list and didn't break if it was empty. It then took the list, which was a text of numbers separated by commas, and broke it into individual numbers. To pick out the prime numbers, the code used a simple filter that kept only the primes and made a new list out of them. This approach was direct and avoided unnecessary complexity.
 
 //Task 4
 
