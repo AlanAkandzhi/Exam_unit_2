@@ -22,24 +22,40 @@ Console.WriteLine($"Start:\n{Colors.Magenta}{startRespons}{ANSICodes.Reset}\n\n"
 string taskID = "aAaa23"; // We get the taskID from the previous response and use it to get the task (look at the console output to find the taskID)
 
 //#### FIRST TASK 
-// Fetch the details of the task from the server.
-Response task1Response = await httpUtils.Get(baseURL + taskEndpoint + myPersonalID + "/" + taskID); // Get the task from the server
-//Console.WriteLine(task1Response);
+
+Response task1Response = await httpUtils.Get(baseURL + taskEndpoint + myPersonalID + "/" + taskID);
 Task task1 = JsonSerializer.Deserialize<Task>(task1Response.content);
 Console.WriteLine($"TASK: {ANSICodes.Effects.Bold}{task1?.title}{ANSICodes.Reset}\n{task1?.description}\nParameters: {Colors.Yellow}{task1?.parameters}{ANSICodes.Reset}");
 
 string tempInFahrenheitAsString = task1?.parameters;
 Console.WriteLine("This is just checking " + tempInFahrenheitAsString);
+
 int tempFahrenheitAsInt = int.Parse(tempInFahrenheitAsString);
 Console.WriteLine("This is just checking the int " + tempFahrenheitAsInt);
 
-double tempCelsiusAsInt = (((tempFahrenheitAsInt) - 32) * 5) / 9;
-Console.WriteLine("This is just checking the int as celsius " + tempCelsiusAsInt);
-
-double answer = tempCelsiusAsInt;
+double tempCelsiusAsInt = (((tempFahrenheitAsInt) - 32) * 5) / 9.0;
+double answer = Math.Round(tempCelsiusAsInt, 2);
+Console.WriteLine("This is just checking the int as celsius " + answer);
 
 Response task1AnswerResponse = await httpUtils.Post(baseURL + taskEndpoint + myPersonalID + "/" + taskID, answer.ToString());
 Console.WriteLine($"Answer: {Colors.Green}{task1AnswerResponse}{ANSICodes.Reset}");
+
+taskID = "otYK2";
+
+//#### SECOND TASK
+
+Response task2Response = await httpUtils.Get(baseURL + taskEndpoint + myPersonalID + "/" + taskID); 
+Task task2 = JsonSerializer.Deserialize<Task>(task2Response.content);
+Console.WriteLine($"TASK: {ANSICodes.Effects.Bold}{task2?.title}{ANSICodes.Reset}\n{task2?.description}\nParameters: {Colors.Yellow}{task2?.parameters}{ANSICodes.Reset}");
+
+
+
+
+
+
+
+
+
 
 
 
