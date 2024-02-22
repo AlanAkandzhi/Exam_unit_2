@@ -93,6 +93,26 @@ Console.WriteLine($"Prime numbers: {answerTask3}");
 Response task3AnswerResponse = await httpUtils.Post(baseURL + taskEndpoint + myPersonalID + "/" + taskID, answerTask3.ToString());
 Console.WriteLine($"Answer: {Colors.Green}{task3AnswerResponse}{ANSICodes.Reset}");
 
+taskID = "aLp96";
+
+
+//#### FOURTH TASK
+
+Response task4Response = await httpUtils.Get(baseURL + taskEndpoint + myPersonalID + "/" + taskID); 
+Task task4 = JsonSerializer.Deserialize<Task>(task4Response.content);
+Console.WriteLine($"TASK: {ANSICodes.Effects.Bold}{task4?.title}{ANSICodes.Reset}\n{task4?.description}\nParameters: {Colors.Yellow}{task4?.parameters}{ANSICodes.Reset}");
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
