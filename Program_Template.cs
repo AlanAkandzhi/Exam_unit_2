@@ -61,6 +61,11 @@ Console.WriteLine($"Answer: {Colors.Green}{task2AnswerResponse}{ANSICodes.Reset}
 
 taskID = "kuTw53L";
 
+//#### THIRD TASK
+
+Response task3Response = await httpUtils.Get(baseURL + taskEndpoint + myPersonalID + "/" + taskID); 
+Task task3 = JsonSerializer.Deserialize<Task>(task3Response.content);
+Console.WriteLine($"TASK: {ANSICodes.Effects.Bold}{task3?.title}{ANSICodes.Reset}\n{task3?.description}\nParameters: {Colors.Yellow}{task3?.parameters}{ANSICodes.Reset}");
 
 
 
