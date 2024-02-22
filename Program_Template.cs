@@ -48,8 +48,18 @@ Response task2Response = await httpUtils.Get(baseURL + taskEndpoint + myPersonal
 Task task2 = JsonSerializer.Deserialize<Task>(task2Response.content);
 Console.WriteLine($"TASK: {ANSICodes.Effects.Bold}{task2?.title}{ANSICodes.Reset}\n{task2?.description}\nParameters: {Colors.Yellow}{task2?.parameters}{ANSICodes.Reset}");
 
+string wordList = task2?.parameters;
 
+string[] splitWords = wordList.Split(',').Select(word => word.Trim()).ToArray();
+string[] uniqueAndSortedWords = splitWords.Distinct().OrderBy(word => word).ToArray();
 
+string answerTask2 = String.Join(",", uniqueAndSortedWords);
+Console.WriteLine("Sorted unique words: " + answerTask2);
+
+Response task2AnswerResponse = await httpUtils.Post(baseURL + taskEndpoint + myPersonalID + "/" + taskID, answerTask2.ToString());
+Console.WriteLine($"Answer: {Colors.Green}{task2AnswerResponse}{ANSICodes.Reset}");
+
+taskID = "kuTw53L";
 
 
 
