@@ -14,4 +14,4 @@ The task was to create code that finds prime numbers in a list. First, the code 
 
 //Task 4
 
- 
+In this task (task 4) I had to create a program that find if the given number is Odd or Even. First,I made a simple program to check if a number is odd or even. I chose the simplest solution that can be easily improved later. The main part checks if the number is odd or even using a quick method. This keeps the code short and clear.
