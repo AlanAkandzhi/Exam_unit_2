@@ -73,6 +73,7 @@ Console.WriteLine($"TASK: {ANSICodes.Effects.Bold}{task3?.title}{ANSICodes.Reset
 string numberSequence = task3?.parameters;
 
 int[] numbers = numberSequence.Split(',').Select(int.Parse).ToArray();
+Array.Sort(numbers);
 
 string answerTask3 = String.Join(",", numbers.Where(IsPrime));
 
