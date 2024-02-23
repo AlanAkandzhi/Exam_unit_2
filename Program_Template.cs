@@ -33,11 +33,14 @@ Console.WriteLine("This is just checking " + tempInFahrenheitAsString);
 int tempFahrenheitAsInt = int.Parse(tempInFahrenheitAsString);
 Console.WriteLine("This is just checking the int " + tempFahrenheitAsInt);
 
-double tempCelsiusAsInt = (((tempFahrenheitAsInt) - 32) * 5) / 9.0;
-double answer = Math.Round(tempCelsiusAsInt, 2);
-Console.WriteLine("This is just checking the int as celsius " + answer);
+int Offsetvalue = 32;
+var conversionFactor = 5 / 9.0;
 
-Response task1AnswerResponse = await httpUtils.Post(baseURL + taskEndpoint + myPersonalID + "/" + taskID, answer.ToString());
+double tempCelsiusAsInt = ((tempFahrenheitAsInt) - Offsetvalue) * conversionFactor;
+double answerTask1 = Math.Round(tempCelsiusAsInt, 2);
+Console.WriteLine("This is just checking the int as celsius " + answerTask1);
+
+Response task1AnswerResponse = await httpUtils.Post(baseURL + taskEndpoint + myPersonalID + "/" + taskID, answerTask1.ToString());
 Console.WriteLine($"Answer: {Colors.Green}{task1AnswerResponse}{ANSICodes.Reset}");
 
 taskID = "otYK2";
@@ -102,18 +105,16 @@ Response task4Response = await httpUtils.Get(baseURL + taskEndpoint + myPersonal
 Task task4 = JsonSerializer.Deserialize<Task>(task4Response.content);
 Console.WriteLine($"TASK: {ANSICodes.Effects.Bold}{task4?.title}{ANSICodes.Reset}\n{task4?.description}\nParameters: {Colors.Yellow}{task4?.parameters}{ANSICodes.Reset}");
 
+string enigmaticNumber = task4?.parameters;
 
+int number = int.Parse(enigmaticNumber);
 
+string answerTask4 = (number % 2 == 0) ? "even" : "odd";
 
+Console.WriteLine($"The number {number} is {answerTask4}.");
 
-
-
-
-
-
-
-
-
+Response task4AnswerResponse = await httpUtils.Post(baseURL + taskEndpoint + myPersonalID + "/" + taskID, answerTask4.ToString());
+Console.WriteLine($"Answer: {Colors.Green}{task4AnswerResponse}{ANSICodes.Reset}");
 
 
 
