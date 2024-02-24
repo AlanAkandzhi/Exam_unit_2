@@ -12,6 +12,7 @@ The code utilizes a simple conversion formula. Precision is achieved with `Math.
 
 ```csharp``` 💻🔷
 ```double tempCelsiusAsDouble = ((tempFahrenheitAsInt - 32) * 5 / 9.0);```
+
 ```double answer = Math.Round(tempCelsiusAsDouble, 2);```
 
 ### Task 2: Unique and Ordered Word List 📋🔍
@@ -24,7 +25,9 @@ The process involves obtaining the string of words, splitting them by commas, tr
 
 ```csharp``` 💻🔷
 ```string[] splitWords = wordList.Split(',').Select(word => word.Trim()).ToArray();```
+
 ```string[] uniqueAndSortedWords = splitWords.Distinct().OrderBy(word => word).ToArray();```
+
 ```string result = String.Join(",", uniqueAndSortedWords);```
 
 ### Task 3: Prime Number Finder 🔢🔍
@@ -37,6 +40,7 @@ The code parses the list of numbers, filters by prime numbers using a dedicated 
 
 ```csharp``` 💻🔷
 ```int[] numbers = numberSequence.Split(',').Select(int.Parse).ToArray();```
+
 ```var primes = numbers.Where(IsPrime); // Assuming IsPrime is a defined method```
 
 ### Task 4: Odd or Even Number Identification ➗🔢✖️
