@@ -12,6 +12,7 @@ const string myPersonalID = "83593b863072c7c1ccb7e7f712d285758643b2c401501531c17
 const string baseURL = "https://mm-203-module-2-server.onrender.com/";
 const string startEndpoint = "start/"; 
 const string taskEndpoint = "task/";   
+const string userID = "Alan";
 
 HttpUtils httpUtils = HttpUtils.instance;
 
@@ -25,7 +26,8 @@ string taskID = "aAaa23";
 
 Response task1Response = await httpUtils.Get(baseURL + taskEndpoint + myPersonalID + "/" + taskID);
 Task task1 = JsonSerializer.Deserialize<Task>(task1Response.content);
-Console.WriteLine($"TASK: {ANSICodes.Effects.Bold}{task1?.title}{ANSICodes.Reset}\n{task1?.description}\nParameters: {Colors.Red}{task1?.parameters}{ANSICodes.Reset}");
+task1.userID = userID;
+Console.WriteLine($"TASK: {ANSICodes.Effects.Bold}{task1?.title}{ANSICodes.Reset}\n{task1?.description}\nParameters: {Colors.Red}{task1?.parameters}{ANSICodes.Reset}\nUser: {userID}");
 
 string tempInFahrenheitAsString = task1?.parameters;
 Console.WriteLine("This is just checking " + tempInFahrenheitAsString);
@@ -49,7 +51,8 @@ taskID = "otYK2";
 
 Response task2Response = await httpUtils.Get(baseURL + taskEndpoint + myPersonalID + "/" + taskID); 
 Task task2 = JsonSerializer.Deserialize<Task>(task2Response.content);
-Console.WriteLine($"TASK: {ANSICodes.Effects.Bold}{task2?.title}{ANSICodes.Reset}\n{task2?.description}\nParameters: {Colors.Yellow}{task2?.parameters}{ANSICodes.Reset}");
+task2.userID = userID;
+Console.WriteLine($"TASK: {ANSICodes.Effects.Bold}{task2?.title}{ANSICodes.Reset}\n{task2?.description}\nParameters: {Colors.Yellow}{task2?.parameters}{ANSICodes.Reset}\nUser: {userID}");
 
 string wordList = task2?.parameters;
 
@@ -68,7 +71,8 @@ taskID = "kuTw53L";
 
 Response task3Response = await httpUtils.Get(baseURL + taskEndpoint + myPersonalID + "/" + taskID); 
 Task task3 = JsonSerializer.Deserialize<Task>(task3Response.content);
-Console.WriteLine($"TASK: {ANSICodes.Effects.Bold}{task3?.title}{ANSICodes.Reset}\n{task3?.description}\nParameters: {Colors.Red}{task3?.parameters}{ANSICodes.Reset}");
+task3.userID = userID;
+Console.WriteLine($"TASK: {ANSICodes.Effects.Bold}{task3?.title}{ANSICodes.Reset}\n{task3?.description}\nParameters: {Colors.Red}{task3?.parameters}{ANSICodes.Reset}\nUser: {userID}");
 
 string numberSequence = task3?.parameters;
 
@@ -103,7 +107,8 @@ taskID = "aLp96";
 
 Response task4Response = await httpUtils.Get(baseURL + taskEndpoint + myPersonalID + "/" + taskID); 
 Task task4 = JsonSerializer.Deserialize<Task>(task4Response.content);
-Console.WriteLine($"TASK: {ANSICodes.Effects.Bold}{task4?.title}{ANSICodes.Reset}\n{task4?.description}\nParameters: {Colors.Red}{task4?.parameters}{ANSICodes.Reset}");
+task4.userID = userID;
+Console.WriteLine($"TASK: {ANSICodes.Effects.Bold}{task4?.title}{ANSICodes.Reset}\n{task4?.description}\nParameters: {Colors.Red}{task4?.parameters}{ANSICodes.Reset}\nUser: {userID}");
 
 string enigmaticNumber = task4?.parameters;
 
