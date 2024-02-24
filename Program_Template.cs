@@ -30,10 +30,8 @@ task1.userID = userID;
 Console.WriteLine($"TASK: {ANSICodes.Effects.Bold}{task1?.title}{ANSICodes.Reset}\n{task1?.description}\nParameters: {Colors.Red}{task1?.parameters}{ANSICodes.Reset}\nUser: {userID}");
 
 string tempInFahrenheitAsString = task1?.parameters;
-Console.WriteLine("This is just checking " + tempInFahrenheitAsString);
 
 int tempFahrenheitAsInt = int.Parse(tempInFahrenheitAsString);
-Console.WriteLine("This is just checking the int " + tempFahrenheitAsInt);
 
 int Offsetvalue = 32;
 var conversionFactor = 5 / 9.0;
