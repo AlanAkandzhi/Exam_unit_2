@@ -1,17 +1,54 @@
-# Exam_unit_2
+# Exam Unit 2 Overview 🎓
 
-//Task 1
+This document provides a detailed overview of solutions to various programming tasks aimed at demonstrating practical skills in data manipulation and analysis. Each task is outlined with its objectives, the approach taken to solve it, and the code implementation.
 
-In this task, we needed to write a program that changes temperature from Fahrenheit to Celsius and shows the result with two numbers after the decimal point. The code I wrote uses a simple formula to do the conversion. Then, to make sure the temperature in Celsius has exactly two decimal places, I added "double answer = Math.Round(tempCelsiusAsInt, 2);" to the code. This line rounds the answer to the required precision.
+## 📝 Tasks and Solutions
 
-//Task 2
+### Task 1: Temperature Conversion 🌡️
 
-In this task, the goal was to pick out different words from a string and list them in order, without any repeats. To do this, I first got the string of words using "string wordList = task2?.parameters;". Then, I broke it into pieces at each comma and cleaned up any spaces from the ends. This step makes sure that when we look at the words, we're not confused by extra spaces. Next, I used a special command to get rid of any repeating words and another to put them in A to Z order. Finally, I put the words back together in a neat line, ready to be shown or used somewhere else.
+#### Objective 🎯
+To write a program that converts temperature from Fahrenheit to Celsius, with the result shown to two decimal places.
 
-//Task 3
+#### Solution 💡
+The code utilizes a simple conversion formula. Precision is achieved with `Math.Round`, rounding the answer to the required two decimal places.
 
-The task was to create code that finds prime numbers in a list. First, the code safely grabbed the list and didn't break if it was empty. It then took the list, which was a text of numbers separated by commas, and broke it into individual numbers. To pick out the prime numbers, the code used a simple filter that kept only the primes and made a new list out of them. This approach was direct and avoided unnecessary complexity.
+```csharp``` 💻🔷
+double tempCelsiusAsDouble = ((tempFahrenheitAsInt - 32) * 5 / 9.0);
+double answer = Math.Round(tempCelsiusAsDouble, 2);
 
-//Task 4
+### Task 2: Unique and Ordered Word List 📋🔍
 
-In this task (task 4) I had to create a program that find if the given number is Odd or Even. First,I made a simple program to check if a number is odd or even. I chose the simplest solution that can be easily improved later. The main part checks if the number is odd or even using a quick method. This keeps the code short and clear.
+#### Objective 🎯
+Extract unique words from a string and list them in alphabetical order, ensuring no duplicates.
+
+#### Solution 💡
+The process involves obtaining the string of words, splitting them by commas, trimming spaces, removing duplicates, and sorting alphabetically before joining them back into a single string.
+
+```csharp``` 💻🔷
+string[] splitWords = wordList.Split(',').Select(word => word.Trim()).ToArray();
+string[] uniqueAndSortedWords = splitWords.Distinct().OrderBy(word => word).ToArray();
+string result = String.Join(",", uniqueAndSortedWords);
+
+### Task 3: Prime Number Finder 🔢🔍
+
+#### Objective 🎯
+Develop code that identifies prime numbers within a list.
+
+#### Solution 💡
+The code parses the list of numbers, filters by prime numbers using a dedicated method, and generates a list of the prime numbers found.
+
+```csharp``` 💻🔷
+int[] numbers = numberSequence.Split(',').Select(int.Parse).ToArray();
+var primes = numbers.Where(IsPrime); // Assuming IsPrime is a defined method
+
+### Task 4: Odd or Even Number Identification ➗🔢✖️
+
+#### Objective 🎯
+Create a program that determines if a given number is odd or even.
+
+#### Solution 💡
+The solution employs a simple check using the modulo operator to determine the number's parity.
+
+```csharp``` 💻🔷
+string result = (number % 2 == 0) ? "even" : "odd";
+
