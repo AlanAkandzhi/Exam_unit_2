@@ -45,6 +45,8 @@ Console.WriteLine($"Answer: {Colors.Green}{response}{ANSICodes.Reset}");
 
 taskID = "otYK2";
 
+Console.WriteLine("\n-----------------------------------\n");
+
 //#### SECOND TASK
 
 Response task2Response = await httpUtils.Get(baseURL + taskEndpoint + myPersonalID + "/" + taskID); 
@@ -64,6 +66,8 @@ var response2 = await httpUtils.Post($"{baseURL}{taskEndpoint}{myPersonalID}/{ta
 Console.WriteLine($"Answer: {Colors.Green}{response2}{ANSICodes.Reset}");
 
 taskID = "kuTw53L";
+
+Console.WriteLine("\n-----------------------------------\n");
 
 //#### THIRD TASK
 
@@ -100,6 +104,8 @@ var response3 = await httpUtils.Post($"{baseURL}{taskEndpoint}{myPersonalID}/{ta
 Console.WriteLine($"Answer: {Colors.Green}{response3}{ANSICodes.Reset}");
 
 taskID = "aLp96";
+
+Console.WriteLine("\n-----------------------------------\n");
 
 //#### FOURTH TASK
 
