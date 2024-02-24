@@ -36,9 +36,9 @@ Console.WriteLine("This is just checking the int " + tempFahrenheitAsInt);
 int Offsetvalue = 32;
 var conversionFactor = 5 / 9.0;
 
-double tempCelsiusAsInt = ((tempFahrenheitAsInt) - Offsetvalue) * conversionFactor;
-double answerTask1 = Math.Round(tempCelsiusAsInt, 2);
-Console.WriteLine("This is just checking the int as celsius " + answerTask1);
+double tempCelsiusAsDouble = ((tempFahrenheitAsInt) - Offsetvalue) * conversionFactor;
+string answerTask1 = tempCelsiusAsDouble.ToString("0.00"); 
+Console.WriteLine("Temperature in Celsius: " + answerTask1);
 
 var response = await httpUtils.Post($"{baseURL}{taskEndpoint}{myPersonalID}/{taskID}", answerTask1.ToString());
 Console.WriteLine($"Answer: {Colors.Green}{response}{ANSICodes.Reset}");
