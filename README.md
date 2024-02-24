@@ -1,7 +1,5 @@
 # Exam Unit 2 Overview 🎓
 
-This document provides a detailed overview of solutions to various programming tasks aimed at demonstrating practical skills in data manipulation and analysis. Each task is outlined with its objectives, the approach taken to solve it, and the code implementation.
-
 ## 📝 Tasks and Solutions
 
 ### Task 1: Temperature Conversion 🌡️
