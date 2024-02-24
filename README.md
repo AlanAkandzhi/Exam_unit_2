@@ -11,6 +11,7 @@ To write a program that converts temperature from Fahrenheit to Celsius, with th
 The code utilizes a simple conversion formula. Precision is achieved with `Math.Round`, rounding the answer to the required two decimal places.
 
 ```csharp``` 💻🔷
+
 ```double tempCelsiusAsDouble = ((tempFahrenheitAsInt - 32) * 5 / 9.0);```
 
 ```double answer = Math.Round(tempCelsiusAsDouble, 2);```
@@ -24,6 +25,7 @@ Extract unique words from a string and list them in alphabetical order, ensuring
 The process involves obtaining the string of words, splitting them by commas, trimming spaces, removing duplicates, and sorting alphabetically before joining them back into a single string.
 
 ```csharp``` 💻🔷
+
 ```string[] splitWords = wordList.Split(',').Select(word => word.Trim()).ToArray();```
 
 ```string[] uniqueAndSortedWords = splitWords.Distinct().OrderBy(word => word).ToArray();```
@@ -39,6 +41,7 @@ Develop code that identifies prime numbers within a list.
 The code parses the list of numbers, filters by prime numbers using a dedicated method, and generates a list of the prime numbers found.
 
 ```csharp``` 💻🔷
+
 ```int[] numbers = numberSequence.Split(',').Select(int.Parse).ToArray();```
 
 ```var primes = numbers.Where(IsPrime); // Assuming IsPrime is a defined method```
@@ -52,5 +55,6 @@ Create a program that determines if a given number is odd or even.
 The solution employs a simple check using the modulo operator to determine the number's parity.
 
 ```csharp``` 💻🔷
+
 ```string result = (number % 2 == 0) ? "even" : "odd";```
 
