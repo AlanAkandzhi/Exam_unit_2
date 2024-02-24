@@ -40,8 +40,8 @@ double tempCelsiusAsInt = ((tempFahrenheitAsInt) - Offsetvalue) * conversionFact
 double answerTask1 = Math.Round(tempCelsiusAsInt, 2);
 Console.WriteLine("This is just checking the int as celsius " + answerTask1);
 
-Response task1AnswerResponse = await httpUtils.Post(baseURL + taskEndpoint + myPersonalID + "/" + taskID, answerTask1.ToString());
-Console.WriteLine($"Answer: {Colors.Green}{task1AnswerResponse}{ANSICodes.Reset}");
+var response = await httpUtils.Post($"{baseURL}{taskEndpoint}{myPersonalID}/{taskID}", answerTask1.ToString());
+Console.WriteLine($"Answer: {Colors.Green}{response}{ANSICodes.Reset}");
 
 taskID = "otYK2";
 
@@ -59,8 +59,8 @@ string[] uniqueAndSortedWords = splitWords.Distinct().OrderBy(word => word).ToAr
 string answerTask2 = String.Join(",", uniqueAndSortedWords);
 Console.WriteLine("Sorted unique words: " + answerTask2);
 
-Response task2AnswerResponse = await httpUtils.Post(baseURL + taskEndpoint + myPersonalID + "/" + taskID, answerTask2.ToString());
-Console.WriteLine($"Answer: {Colors.Green}{task2AnswerResponse}{ANSICodes.Reset}");
+var response2 = await httpUtils.Post($"{baseURL}{taskEndpoint}{myPersonalID}/{taskID}", answerTask2.ToString());
+Console.WriteLine($"Answer: {Colors.Green}{response2}{ANSICodes.Reset}");
 
 taskID = "kuTw53L";
 
@@ -83,19 +83,19 @@ bool IsPrime(int number)
     if (number == 2) return true;
     if (number % 2 == 0) return false;
 
-    var boundary = (int)Math.Sqrt(number);
+    var boundary = (int)Math.Floor(Math.Sqrt(number));
+          
     for (int i = 3; i <= boundary; i += 2)
-    {
         if (number % i == 0)
             return false;
-    }
-    return true;
+    
+    return true;        
 }
 
 Console.WriteLine($"Prime numbers: {answerTask3}");
 
-Response task3AnswerResponse = await httpUtils.Post(baseURL + taskEndpoint + myPersonalID + "/" + taskID, answerTask3.ToString());
-Console.WriteLine($"Answer: {Colors.Green}{task3AnswerResponse}{ANSICodes.Reset}");
+var response3 = await httpUtils.Post($"{baseURL}{taskEndpoint}{myPersonalID}/{taskID}", answerTask3.ToString());
+Console.WriteLine($"Answer: {Colors.Green}{response3}{ANSICodes.Reset}");
 
 taskID = "aLp96";
 
@@ -114,11 +114,8 @@ string answerTask4 = (number % 2 == 0) ? "even" : "odd";
 
 Console.WriteLine($"The number {number} is {answerTask4}.");
 
-Response task4AnswerResponse = await httpUtils.Post(baseURL + taskEndpoint + myPersonalID + "/" + taskID, answerTask4.ToString());
-Console.WriteLine($"Answer: {Colors.Green}{task4AnswerResponse}{ANSICodes.Reset}");
-
-
-
+var response4 = await httpUtils.Post($"{baseURL}{taskEndpoint}{myPersonalID}/{taskID}", answerTask4.ToString());
+Console.WriteLine($"Answer: {Colors.Green}{response4}{ANSICodes.Reset}");
 
 
 class Task
